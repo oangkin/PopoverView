@@ -161,7 +161,8 @@
     UIFont *font = kTextFont;
     
     CGSize screenSize = [self screenSize];
-    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:UILineBreakModeWordWrap];
+    CGSize textSize = [text boundingRectWithSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
+    
     
     UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
     textView.backgroundColor = [UIColor clearColor];
@@ -180,8 +181,7 @@
     UIFont *font = kTextFont;
     
     CGSize screenSize = [self screenSize];
-    CGSize textSize = [text sizeWithFont:font constrainedToSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) lineBreakMode:UILineBreakModeWordWrap];
-    
+    CGSize textSize = [text boundingRectWithSize:CGSizeMake(screenSize.width - kHorizontalMargin*4.f, 1000.f) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
     UILabel *textView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
     textView.backgroundColor = [UIColor clearColor];
     textView.userInteractionEnabled = NO;
@@ -355,7 +355,7 @@
     UIFont *font = kTextFont;
     
     for (NSString *string in stringArray) {
-        CGSize textSize = [string sizeWithFont:font];
+        CGSize textSize =  [string sizeWithAttributes:@{NSFontAttributeName:font}];;
         UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
         textButton.backgroundColor = [UIColor clearColor];
         textButton.titleLabel.font = font;
@@ -380,7 +380,7 @@
     UIFont *font = kTextFont;
     
     for (NSString *string in stringArray) {
-        CGSize textSize = [string sizeWithFont:font];
+        CGSize textSize = [string sizeWithAttributes:@{NSFontAttributeName:font}];
         UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
         textButton.backgroundColor = [UIColor clearColor];
         textButton.titleLabel.font = font;
