@@ -94,7 +94,7 @@
 #define kTextFont [UIFont fontWithName:@"HelveticaNeue" size:13.f]
 
 //normal text color
-#define kTextColor [UIColor colorWithHexString:@"#666666"]
+#define kTextColor [UIColor colorWithRed:0.102 green:0.102 blue:0.102 alpha:1.000]
 // highlighted text color
 #define kTextHighlightColor [UIColor colorWithRed:0.098 green:0.102 blue:0.106 alpha:1.000]
 
