@@ -383,6 +383,8 @@
         CGSize textSize = [string sizeWithAttributes:@{NSFontAttributeName:font}];
         UIButton *textButton = [[UIButton alloc] initWithFrame:CGRectMake(0, 0, textSize.width, textSize.height)];
         textButton.backgroundColor = [UIColor clearColor];
+        textButton.titleEdgeInsets = UIEdgeInsetsMake(0, 0, 4, 0);
+        textButton.imageEdgeInsets = UIEdgeInsetsMake(0, 4, 0, 0);
         textButton.titleLabel.font = font;
         textButton.titleLabel.textAlignment = kTextAlignment;
         textButton.titleLabel.textColor = kTextColor;
